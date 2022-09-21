@@ -16,48 +16,43 @@
 #define ADJUST 3
 
 / {
+
+    behaviors {        
+        hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <150>;
+        quick_tap_ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+        };
+    };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // .--------------------------------------------------------------.       .-----------------------------------------------------------.
-<<<<<<< HEAD
 // |   [          |    P    |    O   |   I    |    U    |    Y    |       |   T   |    R    |    E    |    W    |     Q    |    ESC   |
 // |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
 // |    '         |    ;    |    L   |   K    |    J    |    H    |       |   G   |    F    |    D    |    S    |     A    | CTRL/Tab |
 // |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
 // |  ` | ALT     |    ~    |    .   |   ,    |    M    |    N    |       |   B   |    V    |    C    |    X    |     Z    |    SHFT  |
-=======
-// |   ESC        |    Q    |    W   |   E    |    R    |    T    |       |   Y   |    U    |    I    |    O    |     P    |    \     |
-// |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
-// |   CTRL/Tab   |    A    |    S   |   D    |    F    |    G    |       |   H   |    J    |    K    |    L    |     ;    |     '    |
-// |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
-// |   SHFT       |    Z    |    X   |   C    |    V    |    B    |       |   N   |    M    |    ,    |    .    |     /    | ` | ALT  |
->>>>>>> 341e37b2ab27d379c921291f585d20bf89572880
 // '---------------------------------+--------+---------+---------+       |-------+---------+---------+-------------------------------'
 //                                   |  GUI   |   MO1   |   ENT   |       |  SPC  |   BKSP  |  CAPS   |
 //                                   '--------+---------+---------'       '-------+---------+---------'
                         bindings = <
-<<<<<<< HEAD
    &trans &kp LBKT &kp P       &kp O      &kp I     &kp U           &kp Y   &kp T  &kp R           &kp E        &kp W     &kp Q    &kp ESC  &trans
    &kp SQT  &kp SEMI       &kp L      &kp K     &kp J           &kp H   &kp G  &kp F           &kp D       &kp S     &kp A  &mt LCTRL TAB 
    &mt RALT GRAVE      &kp FSLH       &kp DOT      &kp COMMA     &kp M           &kp N   &kp B  &kp V           &kp C    &kp X   &kp Z   &kp LSHFT
-=======
-   &trans &kp ESC        &kp Q       &kp W      &kp E     &kp R           &kp T   &kp Y  &kp U           &kp I        &kp O     &kp P      &kp LBKT   &trans
-   &mt LCTRL TAB  &kp A       &kp S      &kp D     &kp F           &kp G   &kp H  &kp J           &kp K        &kp L     &kp SEMI   &kp SQT
-   &kp LSHFT      &kp Z       &kp X      &kp C     &kp V           &kp B   &kp N  &kp M           &kp COMMA    &kp DOT   &kp FSLH   &mt RALT GRAVE
->>>>>>> 341e37b2ab27d379c921291f585d20bf89572880
                   &kp LGUI    &mo 1      &lt NAVI RET              &kp SPACE       &kp BSPC    &kp CAPSLOCK
                         >;
                 };
                 
                 lower_layer {
 // .--------------------------------------------------------------.       .-----------------------------------------------------------.
-<<<<<<< HEAD
 // |   ESC        |    0    |    1   |   2    |    3    |    4    |       |   5   |    6    |    7    |    8    |     9    |    `     |
-=======
-// |   ESC        |    1    |    2   |   3    |    4    |    5    |       |   6   |    7    |    8    |    9    |     0    |    `     |
->>>>>>> 341e37b2ab27d379c921291f585d20bf89572880
 // |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
 // |              |    !    |    @   |   #    |    $    |    %    |       |   ^   |    &    |    *    |    (    |     )    |     :    |
 // |--------------+---------+--------+--------+---------+---------|       |-------+---------+---------+---------+----------+----------|
@@ -66,15 +61,9 @@
 //                                   |  GUI   |         |   MO3   |       |   ,   |    .    |   ?     |
 //                                   '--------+---------+---------'       '-------+---------+---------'
                         bindings = <
-<<<<<<< HEAD
    &trans &kp GRAVE  &kp N0        &kp N1       &kp N2            &kp N3             &kp N4               &kp N5            &kp N6                   &kp N7                     &kp N8                 &kp N9            &kp ESC   &trans
    &trans &kp COLON     &kp EXCL     &kp AT            &kp HASH           &kp DLLR             &kp PRCNT         &kp CARET                &kp AMPS                   &kp KP_MULTIPLY        &kp LPAR                 &kp RPAR  &trans 
    &trans       &kp KP_PLUS       &kp KP_MINUS       &kp LEFT_BRACE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET        &kp RIGHT_BRACE            &kp KP_EQUAL           &kp UNDERSCORE           &kp LSHFT     &trans
-=======
-   &trans &kp ESC    &kp N1       &kp N2            &kp N3             &kp N4               &kp N5            &kp N6                   &kp N7                     &kp N8                 &kp N9                   &kp N0     &kp GRAVE &trans
-   &trans     &kp EXCL     &kp AT            &kp HASH           &kp DLLR             &kp PRCNT         &kp CARET                &kp AMPS                   &kp KP_MULTIPLY        &kp LPAR                 &kp RPAR   &kp COLON
-   &kp LSHFT  &trans       &kp KP_PLUS       &kp KP_MINUS       &kp LEFT_BRACE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET        &kp RIGHT_BRACE            &kp KP_EQUAL           &kp UNDERSCORE           &trans     &trans
->>>>>>> 341e37b2ab27d379c921291f585d20bf89572880
                                              &kp LGUI           &trans               &mo ADJUST        &kp KP_N1                &kp KP_N2                  &kp KP_N3
                         >;
                 };
